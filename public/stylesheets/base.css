@@ -1,0 +1,101 @@
+html, body {
+    padding: 0;
+    margin:0;
+    height: 100vh;
+    width: 100vw; }
+
+
+div.parent:after {
+    content: "";
+    display: block;
+    clear: both; }
+
+
+section.right{
+    float: right;
+   /* border: 1px solid slategrey;*/
+}
+
+section.right:after {
+
+    content: "";
+    display: block;
+    clear: both;
+
+}
+
+section > *{
+    margin: 10px;
+}
+
+section.left {
+    float: left;
+}
+
+section.left:after {
+    content: "";
+    display: block;
+    clear: both;
+
+}
+
+div.calendar-container {
+    width: 51.5em;
+    text-align: center;
+    float: left; }
+
+.monthList{
+    list-style-type: none;
+    display: inline-flex;
+
+}
+
+div.date{
+
+    width: 7em;
+    height: 5em;
+    float: left;
+    color: black;
+    background-color: white;
+    margin: 0.1em;
+    text-align: center;
+    border: 1px solid darkgrey;
+}
+
+
+div.top-bar:after {
+    content:'';
+    display: block;
+    clear: both;
+}
+
+div.week {
+    width: 7em;
+    line-height: 1.5em;
+    border: 1px solid darkgrey;
+    float: left;
+    color: black;
+    background-color: white;
+    margin: 0.1em;
+    text-align: center; }
+
+div.date.prev-month {
+    background-color: lightgray; }
+
+div.date.next-month {
+    background-color: lightgray; }
+
+/*div.date:hover {
+    background-color: coral;
+    transition: background-color 500ms ease-out; }*/
+/*
+div.right {
+    width: calc(100% - (14.5em));
+    border: 1px solid black;
+    float: left; }
+*/
+div.right > div {
+    color: white;
+    line-height: 2em;
+    border-bottom: 1px solid silver; }
+

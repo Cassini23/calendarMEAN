@@ -1,0 +1,23 @@
+<div class="calendar-container">
+    <div class="top-bar">
+        <ul class="monthList">
+            <li> <button class="prev" ng-click="print()"> < </button> </li>
+            <li> <p class="month-name"> {{currentMonth}} </p> </li>
+            <li> <button class="next" ng-click="">  > </button> </li>
+        </ul>
+    </div>
+    <div ng-repeat="day in week">
+        <div class="week"> {{day}}</div>
+    </div>
+    <!--
+     <div class="week">Sunday</div>
+    <div class="week">Monday</div>
+    <div class="week">Tuesday</div>
+    <div class="week">Wednesday</div>
+    <div class="week">Thursday</div>
+    <div class="week">Friday</div>
+    <div class="week">Saturday</div>-->
+    <!--     <div class="date-container" ng-repeat="date in monthData">
+             <div class = {{date.className}}> {{date.dateObj}}</div>
+         </div>
+     </div>

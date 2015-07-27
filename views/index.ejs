@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="calendarApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <script src="/angular/angular.min.js"></script>
+
+<!--    <script src="/javascripts/calendarDirective.js"></script> -->
+    <script src="/javascripts/calapi.js"></script>
+    <script src="/javascripts/calendarDirective.js"></script>
+   <!-- <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>-->
+</head>
+<body ng-controller="calendarMainCtrl">
+<div class="main">
+    <section class="left">
+        <calendar></calendar>
+    </section>
+    <section class="right">
+        <form novalidate>
+            from : <input type="date" id="fromDate" placeholder="mm/dd/yyyy"/><br/>
+            To : <input type="date" id ="toDate" placeholder="mm/dd/yyyy"/><br/>
+            <button id="list">List events</button><br/>
+        </form>
+
+    </section>
+   <!-- <section class="right">
+        <div class="calendar-container">
+            <div class="top-bar">
+                <ul class="monthList">
+                    <li> <button class="prev" ng-click="print()"> < </button> </li>
+                    <li> <p class="month-name"> Month name </p> </li>
+                    <li> <button class="next" ng-click="">  > </button> </li>
+                </ul>
+            </div>
+            <div ng-repeat="day in week">
+                <div class="week"> {{day}}</div>
+            </div>
+            <!--
+             <div class="week">Sunday</div>
+            <div class="week">Monday</div>
+            <div class="week">Tuesday</div>
+            <div class="week">Wednesday</div>
+            <div class="week">Thursday</div>
+            <div class="week">Friday</div>
+            <div class="week">Saturday</div>-->
+       <!--     <div class="date-container" ng-repeat="date in monthData">
+                <div class = {{date.className}}> {{date.dateObj}}</div>
+            </div>
+        </div>
+    </section>
+    <section class="left">
+        <button ng-click="print()">click me</button>
+    </section>-->
+
+
+</div>
+<!--<script src="https://apis.google.com/js/client.js?callback=checkAuth"></script>-->
+</body>
+</html>

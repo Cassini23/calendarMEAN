@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src = "https://code.jquery.com/jquery-2.1.4.min.js"></script>
+</head>
+<body>
+
+<div id="output">
+    Don't you just love it when a plan comes together
+</div>
+
+<script>
+    var apikey = 'AIzaSyCIi-iyhpMXl_0D0cfqT2rdeTo2aRhx9EY';
+
+    var url = 'https://www.googleapis.com/calendar/v3/calendars/nina2308%40gmail.com/events?key='+apikey;
+
+//    document.addEventListener('DOMContentLoaded',function(){
+        //makeAJAXCall('GET',url);
+ //   });
+
+
+    function makeAJAXCall(verb, url){
+        var xhr =  new XMLHttpRequest();
+        xhr.open(verb, url);
+        xhr.addEventListener('readystatechange',function(){
+            if(xhr.readyState === 4){
+                //console.log(xhr.responseText.items);
+                displayOnTarget(listEvents(JSON.parse(xhr.responseText)));
+            }
+        });
+        xhr.send();
+    }
+
+    function listEvents(resultSet){
+        //console.log(resultSet.items);
+        var set = [];
+        resultSet.items.map(function(event){
+           return set.push({title: event.summary, start: event.start.dateTime, end: event.end.dateTime});
+        });
+        var temp=[];
+        set =  set.filter(function(item){
+            /*if(new Date(item.start) >= new Date(Date.now())){// && new Date(item.end) <= (new Date(Date.now() + 60*24*60*60*1000))){
+             //from today to the next 60 days
+             console.log(new Date(item.start));
+             return true;
+             }
+             else return false;*/
+            if((new Date(item.start)) >= new Date() && (new Date(item.end)) <= new Date(Date.now()+ 60*24*60*60*1000)){
+                console.log(item);
+                return true;
+            }
+        });
+        return set;
+    }
+
+    function displayOnTarget(result){
+       /* result.forEach(function(event){
+            $('#output').text('Event: '+ event.title+ ' '+ new Date(event.start).toLocaleTimeString()+ ' - ' + new Date(event.end).toLocaleTimeString());
+        });*/
+        console.log(result);
+        var event;
+        setInterval(function(){
+            event = result.shift();
+            $('#output').hide().fadeIn(9000).text('Event: '+ event.title+ ' '+ new Date(event.start).toLocaleString()+ ' - ' + new Date(event.end).toLocaleString());
+            result.push(event);
+        },9000);
+    }
+
+
+    $(document).ready(function(){
+        //makeAJAXCall('GET',url);
+        //$('#output').hide().fadeIn(9000);
+        setInterval(makeAJAXCall('GET',url),900000);
+    });
+
+</script>
+</body>
+</html>
